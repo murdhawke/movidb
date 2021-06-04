@@ -1,5 +1,5 @@
 # movidb
-Movie Information Websit
+Movie Information Website
 # movidb
 
 ## Project setup

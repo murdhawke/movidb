@@ -4,8 +4,8 @@
         <section class="latest">
           <h3 class="labels">『 L a t e s t 』</h3>
           <div class="latest-container">
-             <div class="latest-movies" v-for="(m,i) in latestMovies" :key="i">
-              <img :src="m.imgSrc" alt="">
+             <div class="latest-movies" v-show="latestMovie.poster_path != null" v-for="latestMovie in latestMovies" :key="latestMovie.id">
+              <img :src="'https://image.tmdb.org/t/p/w500/' + latestMovie.poster_path" alt="">
             </div>
           </div>
         </section>
@@ -14,22 +14,33 @@
 </template>
 
 <script>
+import axios from 'axios'
 import Nav from './components/Nav'
 import Search from './components/Search'
 export default {
   components: { Nav, Search },
   data () {
     return {
-      latestMovies: [
-        {imgSrc:"https://d1csarkz8obe9u.cloudfront.net/posterpreviews/adventure-movie-poster-template-design-7b13ea2ab6f64c1ec9e1bb473f345547_screen.jpg?ts=1576732289"},
-        {imgSrc:"https://cdn.seat42f.com/wp-content/uploads/2020/07/15192015/Project-Power-Movie-Poster-Jamie-Foxx.jpg"},
-        {imgSrc:"https://d1csarkz8obe9u.cloudfront.net/posterpreviews/action-movie-poster-template-design-0f5fff6262fdefb855e3a9a3f0fdd361_screen.jpg?ts=1573101130"},
-        {imgSrc:"https://images.moviepostershop.com/replicas-movie-poster-1000778791.jpg"},
-        {imgSrc:"https://images.squarespace-cdn.com/content/v1/511eea22e4b06642027a9a99/1522683226854-9FOR6TZ6ZKS14TXFF2YO/ke17ZwdGBToddI8pDm48kObW5L834DLeOoedDyYNM0VZw-zPPgdn4jUwVcJE1ZvWEtT5uBSRWt4vQZAgTJucoTqqXjS3CfNDSuuf31e0tVE0HBlqxyJ0FKkj7k-nCdscI18NqvNAsmDs0Oklw-0igruvPknf91-IP_XxpMjX9og/The+Titan.jpg?format=300w"}
-      ]
+      latestMovies:'',
+      latestMoviesLimit:6
+    }
+  },
+  methods: {
+
+  },
+  mounted() {
+      try {
+        axios.get('https://api.themoviedb.org/3/discover/movie?api_key=0f08dc4e4349843206211c1da94e45f7&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&release_date.gte=2021-06-04&with_watch_monetization_types=flatrate')
+        .then(response => {
+          this.latestMovies = response.data.results.slice(0,this.latestMoviesLimit)
+          
+        })
+      }
+      catch(err) {
+        console.log(err)
+      }
     }
   }
-}
 </script>
 
 <style >
@@ -41,7 +52,7 @@ export default {
     position: relative;
 }
 .latest{
-  padding-bottom: 1rem;
+  padding-bottom: 5rem;
 }
 .latest-container{
   display: flex;
@@ -50,10 +61,16 @@ export default {
   margin: auto;
 }
 .latest-movies {
-
-  height: 20rem;
-  width: 15rem;
+  height: 17rem;
+  width: 12rem;
   margin: auto; 
+  margin-bottom: 20px;
+  margin-top: 10px;
+  padding: 0;
+}
+.latest-movies > img {
+  object-fit: cover;
+  box-shadow: 3px 3px 10px;
 }
 .labels {
   margin: 1rem;

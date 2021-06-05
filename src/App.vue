@@ -9,16 +9,22 @@
             </div>
           </div>
         </section>
-        <Search></Search>
+        <section class="search-section">
+          <Search></Search>
+        </section>
+        <section class="footer-section">
+          <Footer></Footer>
+        </section>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
 import Nav from './components/Nav'
+import Footer from './components/Footer.vue'
 import Search from './components/Search'
 export default {
-  components: { Nav, Search },
+  components: { Nav, Search, Footer },
   data () {
     return {
       latestMovies:'',
@@ -45,14 +51,14 @@ export default {
 
 <style >
 @import url('https://fonts.googleapis.com/css2?family=Days+One&display=swap');
- * {
-    background-color: #372772;
+ *{
     color: white;
     width: 100%;
     position: relative;
 }
 .latest{
-  padding-bottom: 5rem;
+  height: 40vh;
+  background-color: #372772;
 }
 .latest-container{
   display: flex;
@@ -65,7 +71,7 @@ export default {
   width: 12rem;
   margin: auto; 
   margin-bottom: 20px;
-  margin-top: 10px;
+  margin-top: 20px;
   padding: 0;
 }
 .latest-movies > img {
@@ -73,11 +79,18 @@ export default {
   box-shadow: 3px 3px 10px;
 }
 .labels {
-  margin: 1rem;
+  margin-left: 2rem;
   color: white;
   width: 30rem;
   
 }
-
-
+.search-section {
+  background-color: #372772;
+  padding-bottom: 10rem;
+}
+.footer-section {
+  position:relative;
+  bottom: 0;
+  overflow: hidden;
+}
 </style>

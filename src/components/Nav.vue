@@ -19,29 +19,38 @@ export default {
 .nav {
     text-align: center;
     overflow: hidden;
-    padding: 10px;
+    padding: 5px;
+    background-color: #372772;
     
+   
 }
 .navbar {
     width: 100vw;
     min-width: 100vw;
-    height: 100px;
+    height: 150px;
     max-height: 150px;
     display: block;
+    border-radius: 0px 0px 10px 10px;
+    top: 0;
+    padding: 0;
+}
+.navbar-brand {
+    top: 20%;
     
 }
 .logo{
-    height: 60px;
-    width: 60px;
+    height: 10s0px;
+    width: 100px;
     margin: auto;
 }
 .logo-title {
     font-family: 'Days One', sans-serif;
     display: inline;
-    height: 50px;
+    height: 60px;
     vertical-align:bottom;
     padding-left: 10px;
-    color: white;
+    color: #e63946;
     font-style: italic;
+    
 }
 </style>

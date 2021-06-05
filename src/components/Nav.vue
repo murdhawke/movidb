@@ -39,8 +39,8 @@ export default {
     
 }
 .logo{
-    height: 10s0px;
-    width: 100px;
+    height: 80px;
+    width: 80px;
     margin: auto;
 }
 .logo-title {

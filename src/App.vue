@@ -86,7 +86,7 @@ export default {
 }
 .search-section {
   background-color: #372772;
-  padding-bottom: 10rem;
+  padding-bottom: 5rem;
 }
 .footer-section {
   position:relative;

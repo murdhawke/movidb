@@ -11,7 +11,7 @@
              <div class="search-results">
               <div class="search-results-item" v-for="result in results" :key="result.id">
                 <img :src="'https://image.tmdb.org/t/p/w500/'+  result.poster_path"  alt="movie_poster" class="movie-poster">
-                <p>{{result.title}}</p>
+                <p class="titles">{{result.title}}</p>
               </div>
           </div>
         </section>
@@ -86,17 +86,19 @@ section.search-results {
     width: 85vw;
     margin: auto;
     overflow: hidden;
-    margin-left: 14rem;
-    padding: 2rem;
+    margin-left: 6rem;
+    padding-bottom:10rem;
 
 }
 .search-results-item {
-    margin: 30px;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-top: 100px;
     position: relative;
     width: 10rem;
     height:15rem;
     text-align: center;
-    
+    padding: 3rem;
 }
 
 .movie-poster {
@@ -107,10 +109,7 @@ section.search-results {
     margin-bottom: 5px;
     box-shadow: 0 0 7px;
 }
-.centered-text {
-    margin: auto;
-    left: 30%;
-    padding: 1rem;
-    color: #e63946;
+.titles {
+    width:150px
 }
 </style>

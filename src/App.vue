@@ -3,11 +3,11 @@
       <Nav></Nav>
         <section class="latest">
           <h3 class="labels">『 L a t e s t 』</h3>
-          <div class="latest-container">
-             <div class="latest-movies" v-show="latestMovie.poster_path != null" v-for="latestMovie in latestMovies" :key="latestMovie.id">
+          <div class="latest-container row">
+            <div class="latest-movies " v-show="latestMovie.poster_path != null" v-for="latestMovie in latestMovies" :key="latestMovie.id">
               <img :src="'https://image.tmdb.org/t/p/w500/' + latestMovie.poster_path" alt="">
             </div>
-          </div>
+          </div> 
         </section>
         <section class="search-section">
           <Search></Search>
@@ -56,31 +56,31 @@ export default {
     width: 100%;
     position: relative;
     scroll-behavior: smooth;
+    margin: 0px;
+    padding: 0px;
 }
 .latest{
-  height: 40vh;
+  min-height:100%;
   background-color: #372772;
+  padding-bottom: 2rem;
 }
 .latest-container{
   display: flex;
-  width: 90vw;
-  overflow: hidden;
+  max-width: 90vw;
   margin: auto;
+  
 }
 .latest-movies {
-  height: 17rem;
-  width: 12rem;
-  margin: auto; 
-  margin-bottom: 20px;
-  margin-top: 20px;
-  padding: 0;
+  height: 20rem;
+  width: 15rem;
+  padding: 30px;
 }
 .latest-movies > img {
-  object-fit: cover;
+  object-fit:cover;
   box-shadow: 3px 3px 10px;
 }
 .labels {
-  margin-left: 2rem;
+  margin-left: 3rem;
   color: white;
   width: 30rem;
   
@@ -93,5 +93,20 @@ export default {
   position:relative;
   bottom: 0;
   overflow: hidden;
+}
+@media screen and (max-width: 400px) {
+   * {
+     width: 100vw;  
+     overflow-x: hidden;  
+  }
+  .labels {
+    width: auto;
+    text-align: center;
+  }
+  .latest-movies {
+    display: flex;
+    margin: auto;
+    padding: 20px;
+  }
 }
 </style>

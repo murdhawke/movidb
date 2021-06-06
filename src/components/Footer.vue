@@ -4,13 +4,9 @@
         <footer>
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-6 col-md-3 item">
-                        <h3>Services</h3>
-                        <ul>
-                            <li><a href="#">Web design</a></li>
-                            <li><a href="#">Development</a></li>
-                            <li><a href="#">Hosting</a></li>
-                        </ul>
+                  <div class="col-sm-6 col-md-3 item">
+                        <img src="../assets/img/movidb-btm.png" alt="" class="logo-btm">
+                        <h2 class="copyright">MoviDb © 2021</h2>
                     </div>
                     <div class="col-sm-6 col-md-3 item">
                         <h3>About</h3>
@@ -20,7 +16,7 @@
                             <li><a href="#">Careers</a></li>
                         </ul>
                     </div>
-                    <div class="col-md-6 item text">
+                    <div class="col-md-6 col-sm-6 item text">
                         <h3>License</h3>
                         <p>All rights granted under this License are granted for the term of copyright on the Program,
                             and are irrevocable provided the stated conditions are met. This License explicitly affirms 
@@ -30,7 +26,6 @@
                     </div>
                     <div class="col item social"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-snapchat"></i></a><a href="#"><i class="fab fa-instagram"></i></a></div>
                 </div>
-                <p class="copyright">Movidb © 2021</p>
             </div>
         </footer>
         </div>
@@ -47,18 +42,20 @@ export default {
 
 footer {
     width:100%;
-    height: 12rem;
+    height: auto;
     margin: auto;
-    margin-top:40px;
+    margin-top:10px;
     position:relative;
     z-index: 1;
-    margin-bottom: 40px;
+    margin-bottom: 10px;
+    text-align: left;
 }
 .footer-dark  {
-  padding:10px;
+  display: flex;
+  padding:20px;
   color:#f0f9ff;
   background-color: #26272b;
-  padding-top: 30px;
+  padding-top: 20px;
   
 }
 
@@ -88,7 +85,17 @@ footer {
 .footer-dark ul a:hover {
   opacity:0.8;
 }
-
+@media (max-width:400px) {
+  .footer-dark .item.text {
+    display: flex;
+    padding: auto;
+    margin-left: 25px;
+    margin-right: 25px;
+    flex-wrap: wrap;
+    width: auto;
+    
+  }
+}
 @media (max-width:767px) {
   .footer-dark .item:not(.social) {
     text-align:center;
@@ -139,10 +146,15 @@ footer {
 }
 
 .footer-dark .copyright {
-  text-align:center;
-  padding-top:24px;
-  opacity:0.3;
-  font-size:13px;
+  padding-top: 10px;
+  opacity:0.7;
+  font-size:16px;
   margin-bottom:0;
+}
+.logo-btm {
+  width: 100px;
+  height: 100px;
+  padding: 0;
+  color: #C44900;
 }
 </style>

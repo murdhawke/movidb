@@ -4,7 +4,7 @@
           <h3 class="labels">『 S e a r c h 』</h3>
           <div class="sb-container">
             <b-form-input v-model="query"  class="search-bar" placeholder="Movie / TV Show Title"
-            @keyup="getResults(query)"></b-form-input>
+            @keyup="getResults(query)" autocomplete="off"></b-form-input>
           </div>
         </section>
         <section class="search">
@@ -23,8 +23,7 @@ export default {
   data() {
       return {
           query:'',
-          searching:false,
-          results:'',
+          results:''
       }
   },
   methods: {
@@ -34,7 +33,8 @@ export default {
             axios.get('https://api.themoviedb.org/3/search/multi?api_key=0f08dc4e4349843206211c1da94e45f7&page=1&query='+ query)
             .then(response => {
               this.results =  response.data.results
-            }) 
+            })
+              
             }
             catch (err) {
                 console.log(err)
@@ -46,7 +46,6 @@ mounted () {
             axios.get('https://api.themoviedb.org/3/discover/movie?api_key=0f08dc4e4349843206211c1da94e45f7&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&release_date.gte=2021-06-04&with_watch_monetization_types=flatrate')
             .then(response => {
               this.results =  response.data.results.slice(6, 30)
-              console.log(this.results)
             }) 
             }
             catch (err) {
@@ -63,7 +62,7 @@ mounted () {
   background-color: #372772;
 }
 .sb-container {
-  width: 50vw;
+  width: 70%;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -71,15 +70,18 @@ mounted () {
 }
 .search-bar {
   border-radius: 1.5rem;
-  width: 80%;
+  width: 60%;
   height: 3rem;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 100px;
   font-size: 1.5rem;
   
-  background-blend-mode: darken;
-  
 }
+input[type="text"]::placeholder {  
+  margin-left: 1rem;
+  letter-spacing: 5px;
+            } 
 section.search-results {
     height:100vh;
     margin-bottom: 20rem;
@@ -88,21 +90,19 @@ section.search-results {
 .search-results {
     display: flex;
     flex-wrap: wrap;
-    width: 85vw;
+    width: 80vw;
     margin: auto;
-    overflow: hidden;
-    padding-bottom:10rem;
+    padding-top: 10rem;
 
 }
 .search-results-item {
-    margin-left: 25px;
-    margin-right: 25px;
-    margin-top: 100px;
     position: relative;
     width: 10rem;
     height:15rem;
     text-align: center;
-    padding: 3rem;
+    margin: auto;
+    margin-left: 2rem;
+    margin-bottom: 7rem;
 }
 
 .movie-poster {
@@ -115,5 +115,43 @@ section.search-results {
 }
 .titles {
     width:150px
+}
+@media screen and (max-width: 400px) {
+   * {
+     width: 100%;
+  }
+  .search-bar {
+    width: 100%;
+    margin: auto;
+    padding:auto;
+  }
+  .search-results {
+    padding: 50px;
+  }
+  .search-results-item  {
+    width: auto;
+    margin: auto;
+    height: auto;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .movie-poster {
+    margin: auto;
+    padding: auto;
+  }
+  .titles{
+    text-align: center;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .search-bar {
+    width:100%;
+    height: 2rem;
+    font-size: 1rem;
+    margin: 0;
+    padding:0;
+  }
 }
 </style>

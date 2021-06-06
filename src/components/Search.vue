@@ -34,7 +34,6 @@ export default {
             axios.get('https://api.themoviedb.org/3/search/multi?api_key=0f08dc4e4349843206211c1da94e45f7&page=1&query='+ query)
             .then(response => {
               this.results =  response.data.results
-              console.log(this.results)
             }) 
             }
             catch (err) {

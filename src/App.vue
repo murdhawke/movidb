@@ -55,6 +55,7 @@ export default {
     color: white;
     width: 100%;
     position: relative;
+    scroll-behavior: smooth;
 }
 .latest{
   height: 40vh;

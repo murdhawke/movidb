@@ -23,15 +23,18 @@ export default {
   data() {
       return {
           query:'',
+          searching:false,
           results:'',
       }
   },
   methods: {
       getResults(query) {
           try {
+            this.searching = true
             axios.get('https://api.themoviedb.org/3/search/multi?api_key=0f08dc4e4349843206211c1da94e45f7&page=1&query='+ query)
             .then(response => {
               this.results =  response.data.results
+              console.log(this.results)
             }) 
             }
             catch (err) {
@@ -62,18 +65,21 @@ mounted () {
 }
 .sb-container {
   width: 50vw;
-  padding: 2srem;
-  margin: auto;
-
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   
 }
 .search-bar {
   border-radius: 1.5rem;
-  width: 100%;
+  width: 80%;
   height: 3rem;
+  margin-left: auto;
+  margin-right: auto;
   font-size: 1.5rem;
-  padding: 20px;
+  
   background-blend-mode: darken;
+  
 }
 section.search-results {
     height:100vh;
@@ -86,13 +92,12 @@ section.search-results {
     width: 85vw;
     margin: auto;
     overflow: hidden;
-    margin-left: 6rem;
     padding-bottom:10rem;
 
 }
 .search-results-item {
-    margin-left: 30px;
-    margin-right: 30px;
+    margin-left: 25px;
+    margin-right: 25px;
     margin-top: 100px;
     position: relative;
     width: 10rem;
@@ -105,7 +110,7 @@ section.search-results {
     width: 10rem;
     height: 15rem;
     border-radius: 5px;
-    padding:1px;
+    padding:3px;
     margin-bottom: 5px;
     box-shadow: 0 0 7px;
 }

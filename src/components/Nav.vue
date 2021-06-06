@@ -2,8 +2,8 @@
     <div class="nav">
         <nav class="navbar navbar-light">
             <a class="navbar-brand" href="#">
-                <img src="../assets/img/logo-movidb.png" class="logo" alt="">
-                <h2 class="logo-title">MoviDb</h2>
+                <img src="../assets/img/movidb-logo.png" class="logo" alt="">
+                
             </a>
         </nav>
     </div>
@@ -19,8 +19,9 @@ export default {
 .nav {
     text-align: center;
     overflow: hidden;
-    padding: 5px;
+    padding: 10px;
     background-color: #372772;
+    position: sticky;
     
    
 }
@@ -30,27 +31,17 @@ export default {
     height: 150px;
     max-height: 150px;
     display: block;
-    border-radius: 0px 0px 10px 10px;
     top: 0;
-    padding: 0;
+    padding: 10px;
 }
 .navbar-brand {
-    top: 20%;
+   margin-top: 10px;
     
 }
 .logo{
-    height: 80px;
-    width: 80px;
+    height: 5rem;
+    width: 30rem;
     margin: auto;
-}
-.logo-title {
-    font-family: 'Days One', sans-serif;
-    display: inline;
-    height: 60px;
-    vertical-align:bottom;
-    padding-left: 10px;
-    color: #e63946;
-    font-style: italic;
-    
+    scale: 1rem;
 }
 </style>

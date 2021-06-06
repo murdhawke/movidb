@@ -3,7 +3,7 @@
       <Nav></Nav>
         <section class="latest">
           <h3 class="labels">『 L a t e s t 』</h3>
-          <div class="latest-container row">
+          <div class="latest-container">
             <div class="latest-movies " v-show="latestMovie.poster_path != null" v-for="latestMovie in latestMovies" :key="latestMovie.id">
               <img :src="'https://image.tmdb.org/t/p/w500/' + latestMovie.poster_path" alt="">
             </div>
@@ -66,7 +66,7 @@ export default {
 }
 .latest-container{
   display: flex;
-  max-width: 90vw;
+  width: 90%;
   margin: auto;
   
 }
@@ -74,6 +74,7 @@ export default {
   height: 20rem;
   width: 15rem;
   padding: 30px;
+  margin: auto;
 }
 .latest-movies > img {
   object-fit:cover;

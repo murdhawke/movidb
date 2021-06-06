@@ -1,9 +1,9 @@
 <template>
     <div class="nav">
-        <nav class="navbar navbar-light">
+        <nav class="navbar navbar-light row">
             <a class="navbar-brand" href="#">
                 <img src="../assets/img/movidb-logo.png" class="logo" alt="">
-                
+                <img src="../assets/img/movidb-btm.png" class="logo-sm" alt="">
             </a>
         </nav>
     </div>
@@ -21,27 +21,50 @@ export default {
     overflow: hidden;
     padding: 10px;
     background-color: #372772;
-    position: sticky;
+    overflow-x: hidden;
     
    
 }
 .navbar {
-    width: 100vw;
-    min-width: 100vw;
-    height: 150px;
+    max-width: 100%;
     max-height: 150px;
     display: block;
     top: 0;
     padding: 10px;
+    margin: auto;
+
+    
 }
 .navbar-brand {
    margin-top: 10px;
-    
+
 }
 .logo{
     height: 5rem;
     width: 30rem;
     margin: auto;
-    scale: 1rem;
 }
+.logo-sm {
+    display: none;
+}
+@media screen and (max-width: 400px) {
+   * {
+     width: 100vw;
+     overflow-x: hidden;    
+  }
+  .navbar-bar {
+      width: auto;
+  }
+  .logo-sm {
+      display: block;
+      width: 150px;
+      height: 150px;
+      margin: auto;
+  }
+  .logo {
+      display: none;
+      
+  }
+}
+
 </style>

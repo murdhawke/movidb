@@ -66,7 +66,7 @@ export default {
 }
 .latest-container{
   display: flex;
-  max-width: 90vw;
+  max-width: 90%;
   margin: auto;
   
 }
@@ -75,6 +75,7 @@ export default {
   width: 15rem;
   padding: 30px;
   margin: auto;
+  float: left;
 }
 .latest-movies > img {
   object-fit:cover;
